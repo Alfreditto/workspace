@@ -1,0 +1,3 @@
+Esto es un fichero de texto parra probar el programa de JAVA.
+Esto es la segunda línea.
+Y esta e s la tercera y última.XYZ

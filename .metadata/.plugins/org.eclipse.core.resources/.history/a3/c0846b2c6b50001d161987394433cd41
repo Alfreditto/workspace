@@ -1,0 +1,33 @@
+package prueba;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+public class Examen2 {
+	public static void main(String[] args) throws IOException {
+		RandomAccessFile file = new RandomAccessFile(new File("libros.dat"), "rw");
+
+		int isbn = 0;
+		double precioAnt = 0;
+		double precioNuevo = 0;
+
+		long posicion = (Integer.valueOf(args[0]) - 1) * 96;
+
+		if (posicion >= file.length()) {
+			System.out.println("ISBN fuera de rango");
+		} else {
+			file.seek(posicion);
+			isbn = file.readInt();
+			file.seek(posicion + 88);
+			precioAnt = file.readDouble();
+			precioNuevo = precioAnt + (Integer.valueOf(args[1]) / 100);
+			file.seek(posicion+88);
+			file.writeDouble(precioNuevo);
+			System.out.println("ISBN: " + isbn + " Precio anterior: " + precioAnt + " Precio actual: " + precioNuevo);
+
+		}
+		file.close();
+	}
+	
+}

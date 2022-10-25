@@ -1,0 +1,50 @@
+package prueba;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+public class Act1_45 {
+	public static void main(String[] args) throws IOException {
+		File fichero = new File("AleatorioEmple.dat");
+		RandomAccessFile file = new RandomAccessFile(fichero, "rw");
+
+		int dep[] = { 20, 30, 10, 40 };
+		String nombre[] = { "Direccion", "Compras", "Contabilidad", "Ventas" };
+		String localidad[] = { "Madrid", "Puertollano", "Madrid", "Ciudad Real" };
+
+		StringBuffer buffer = null;
+		StringBuffer buffer2 = null;
+
+		int n = nombre.length;
+
+		for (int i = 0; i < n; i++) {
+			file.seek((dep[i] - 1) * 37);
+			file.writeInt(dep[i]);
+			buffer = new StringBuffer(nombre[i]);
+			buffer.setLength(15);
+			file.writeChars(buffer.toString());
+			buffer2 = new StringBuffer(localidad[i]);
+			buffer.setLength(18);
+			file.writeChars(buffer2.toString());
+		}
+		int depart;
+		char[] nombres = new char[15], localidads = new char[18];
+		System.out.printf("Tamaño de archivo: %d\n", file.length());
+		file.seek(0);
+		for (;;) {
+			depart = file.readInt();
+			for (int j = 0; nombres.length < 15; j++) {
+				nombres[j] = file.readChar();
+			}
+			for (int j = 0; j < localidads.length; j++) {
+				localidads[j] = file.readChar();
+			}
+			System.out.printf("Departamento: %d, Nombre: %s, Localidad: %s\n", depart, nombres.toString(), localidads.toString());
+			if (file.getFilePointer() == file.length())
+				break;
+		}
+		file.close();
+	}
+}

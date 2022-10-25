@@ -1,0 +1,16 @@
+package prueba;
+
+import java.io.*;
+
+public class EscribirFichBytes {
+	public static void main(String[] args) throws IOException {
+		File fichero = new File("FichBytes.txt");
+		FileOutputStream fileout = new FileOutputStream(fichero);
+		FileInputStream filein = new FileInputStream(fichero);
+		for (int i = 0; i < 100; i++) {
+			fileout.write(i);
+		}
+		fileout.close();
+	}
+
+}

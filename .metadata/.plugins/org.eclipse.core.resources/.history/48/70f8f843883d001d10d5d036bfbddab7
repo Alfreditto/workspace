@@ -1,0 +1,48 @@
+package prueba;
+
+import java.io.*;
+
+public class Cesar3 {
+	public static void main(String[] args) throws IOException {
+		File f1 = new File("prueba.txt");
+		File f2 = new File("copiacodificado.txt");
+		BufferedReader br = new BufferedReader(new FileReader(f1));
+		FileWriter fw = new FileWriter(f2);
+		PrintWriter pw = new PrintWriter(fw);
+		if (!f2.exists()) {
+			f2.createNewFile();
+		}
+		int aux;
+		while ((aux = br.read()) != -1) {
+			if (aux != 10 && aux != 32 && aux != 46) {
+				if (aux < 88) {
+					aux += 3;
+				} else {
+					if (aux == 88) {
+						aux = 65;
+					} else if (aux == 89) {
+						aux = 66;
+					} else if (aux == 90) {
+						aux = 67;
+					}
+				}
+				if (aux > 90 &&aux < 120) {
+					aux += 3;
+				} else {
+					if (aux == 120) {
+						aux = 97;
+					} else if (aux == 121) {
+						aux = 98;
+					} else if (aux == 122) {
+						aux = 99;
+					}
+				}
+
+			}
+
+			pw.print((char) aux);
+		}
+		br.close();
+		fw.close();
+	}
+}

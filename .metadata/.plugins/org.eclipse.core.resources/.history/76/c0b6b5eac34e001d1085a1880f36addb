@@ -1,0 +1,30 @@
+package com.ifpvg.tema2;
+
+import java.util.ArrayList;
+
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class Ampliacion1 {
+	public static void main(String[] args) {
+		ArrayList<Integer> idRepetido = new ArrayList<Integer>();
+		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "EMPLEDEP.yap");
+		ObjectSet<Empleado2> resulta1 = db.queryByExample(new Empleado2());
+		if (resulta1.size() == 0) {
+			System.out.println("La base de datos no tiene personas");
+		} else {
+			System.out.printf("Numero de registros a borrar: %d\n", resulta1.size()-1);
+		}
+		while (resulta1.hasNext()) {
+			Empleado2 existe = (Empleado2) resulta1.next();
+			if (!idRepetido.contains(existe.getNumero())) {
+				idRepetido.add(existe.getNumero());
+			} else {
+				db.delete(existe);
+			}
+		}
+	}
+
+
+}

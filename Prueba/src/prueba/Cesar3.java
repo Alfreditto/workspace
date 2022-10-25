@@ -1,0 +1,41 @@
+package prueba;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Cesar3 {
+    public static void main(String[] args) throws IOException {
+        File f1 = new File("Prueba.txt");
+        File f2 = new File("copiacodificado.txt");
+        if (!f2.exists()) {
+            try {
+                f2.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        codificar(f1, f2);
+    }
+
+    private static void codificar(File f1, File f2) throws IOException {
+        FileReader fr = new FileReader(f1);
+        FileWriter fw = new FileWriter(f2);
+        int c;
+        while ((c = fr.read()) != -1) {
+            if (c != 32 && c != 10 && c != 46) {
+                if (c >= 97 && c < 120) {
+                    c += 3;
+                } else if (c >= 65 && c < 88) {
+                    c += 3;
+                } else {
+                    c -= 23;
+                }
+            }
+            fw.write(c);
+        }
+        fr.close();
+        fw.close();
+    }
+}
