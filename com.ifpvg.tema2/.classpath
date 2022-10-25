@@ -4,5 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Librerias_java/db4o-8.0.224.15975-core-java5.jar"/>
 	<classpathentry kind="lib" path="C:/Librerias_java/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_java/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_java/derby.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

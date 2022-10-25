@@ -6,7 +6,7 @@ public class Sqlite {
 	public static void main(String[] args) {
 
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName("com.sqlite.jdbc");
 			Connection conexion = DriverManager.getConnection("jdbc:sqlite:d:/sqlite/ejemplo.db");
 			Statement sentencia = conexion.createStatement();
 			ResultSet resul = sentencia.executeQuery("Select * from departamentos");
