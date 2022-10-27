@@ -13,6 +13,7 @@ public class MySql {
 				System.out.println(resul.getInt(1) + " " + resul.getString(2) + " " + resul.getString(3));
 			}
 			resul.close();
+			//DatabaseMetaData dbmd = conexion.getMetaData();
 			sentencia.close();
 			conexion.close();
 		} catch (ClassNotFoundException e) {
