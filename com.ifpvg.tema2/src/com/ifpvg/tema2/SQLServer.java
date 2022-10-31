@@ -12,7 +12,7 @@ public class SQLServer {
 		try {
 			//Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 			Connection conexion = DriverManager
-					.getConnection("jdbc:sqlserver://192.168.209.121;database=ASI1", "dam201", "dam201");
+					.getConnection("jdbc:sqlserver://192.168.209.36;database=ASI1", "dam201", "dam201");
 			Statement sentencia = conexion.createStatement();
 			ResultSet resul = sentencia.executeQuery("Select * from departamentos");
 			while (resul.next()) {

@@ -1,0 +1,55 @@
+package com.ifpvg.tema2;
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Actividad8_Sqlite {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			Class.forName("org.sqlite.JDBC");
+			Connection conexion = DriverManager.getConnection("jdbc:sqlite:d:/sqlite/ejemplo.db");
+			DatabaseMetaData dbmd = conexion.getMetaData();
+
+			String nombre = dbmd.getDatabaseProductName();
+			String driver = dbmd.getDriverName();
+			String url = dbmd.getURL();
+			String usuario = dbmd.getUserName();
+
+			System.out.println("Informacion sobre la BBDD");
+			System.out.println("-------------------------");
+			System.out.println("Nombre: " + nombre);
+			System.out.println("Driver: " + driver);
+			System.out.println("URL: " + url);
+			System.out.println("Usuario: " + usuario);
+
+			ResultSet resul = null;
+			resul = dbmd.getTables(null, "ejemplo", "departamentos", null);
+
+			while (resul.next()) {
+				String catalogo = resul.getString(4);//resul.getString("COLUMN_NAME");
+				String esquema = resul.getString("TYPE_NAME");
+				String tabla = resul.getString(7);//resul.getString("COLUMN_SIZE");
+				String tipo = resul.getString(8);//resul.getString("IS_NULLABLE");
+				System.out.println("-------------------------");
+				System.out.println("Columna: " + catalogo);
+				System.out.println("Tipo: " + esquema);
+				System.out.println("Tamaño: " + tabla);
+				System.out.println("Puede ser nula?: " + tipo);
+			}
+			conexion.close();
+			resul.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
