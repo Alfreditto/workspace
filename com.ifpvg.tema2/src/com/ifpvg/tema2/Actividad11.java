@@ -16,6 +16,15 @@ public class Actividad11 {
 				System.out.println(salida.getString("apellido") + "\t" + salida.getDouble("salario") + "\t"
 						+ salida.getString("oficio"));
 			}
+			sql = "SELECT * from totales where dep = ?";
+			sentencia = conexion.prepareStatement(sql);
+			sentencia.setInt(1, Integer.parseInt(args[0]));
+			salida = sentencia.executeQuery();
+			while (salida.next()) {
+				System.out.println("Departamento: " + salida.getString("dep") + " Salario medio: "
+						+ salida.getDouble("media") + " Empleados: "
+						+ salida.getInt("nemp"));
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

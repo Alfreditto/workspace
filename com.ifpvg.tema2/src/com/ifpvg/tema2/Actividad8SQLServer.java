@@ -8,7 +8,7 @@ public class Actividad8SQLServer {
 		// TODO Auto-generated method stub
 		try {
 			Connection conexion = DriverManager
-					.getConnection("jdbc:sqlserver://192.168.209.36;database=ASI1", "dam201", "dam201");
+					.getConnection("jdbc:sqlserver://192.168.209.49;database=ASI2", "dam201", "popeye");
 			DatabaseMetaData dbmd = conexion.getMetaData();
 
 			String nombre = dbmd.getDatabaseProductName();

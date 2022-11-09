@@ -1,0 +1,22 @@
+package com.ifpvg.tema2;
+
+import java.sql.*;
+
+public class Reto {
+
+	public static void main(String[] args) {
+		try {
+			Connection conexion = DriverManager
+					.getConnection("jdbc:sqlserver://192.168.209.49;database=ASI2", "dam201", "popeye");
+			String sql = "insert into estrellaDAM ('05980787M','Alfredo','Muñoz');";
+			Statement sentencia = conexion.createStatement();
+			ResultSet resul = sentencia
+					.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
