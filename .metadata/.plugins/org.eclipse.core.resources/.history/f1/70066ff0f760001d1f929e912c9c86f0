@@ -1,0 +1,10 @@
+package com.ifpvg.tema2;
+
+public class Proc_subida_oracle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

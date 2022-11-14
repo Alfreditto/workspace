@@ -1,0 +1,44 @@
+package com.ifpvg.tema2;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Proc_bajada {
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo", "root", "");
+
+			// recuperar datos d emain
+			String dep = args[0];
+			String subida = args[0];
+
+			String sql = "call bajada_sal(?,?)";
+
+			CallableStatement llamada = conexion.prepareCall(sql);
+
+			llamada.setInt(1, Integer.parseInt(dep));
+			llamada.setFloat(2, Float.parseFloat(subida));
+			llamada.executeUpdate();
+
+			System.out.println("Bajada realizada");
+
+			PreparedStatement sentencia = conexion.prepareStatement(sql);
+			ResultSet resul = sentencia.executeQuery("Select * from empleados where dept_no = " + dep);
+
+			while (resul.next()) {
+				System.out.println("Nº " + resul.getString("emp_no") + " Apellido: " + resul.getString("Apellido")
+						+ "Salario: " + resul.getDouble("Salario"));
+
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
