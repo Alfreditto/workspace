@@ -1,0 +1,74 @@
+package com.ifpvg.tema2;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+
+public class Ejercicio6 {
+
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo", "root", "");
+			Statement sentencia = conexion.createStatement();
+			int identificador_venta = 1006;
+			int identificador_cliente = 100;
+			int identificador_producto = 3;
+			int cantidad = 1;
+			ResultSet resul = sentencia
+					.executeQuery("Select idventa from ventas where idventa = " + identificador_venta);
+			if (resul.next()) {
+				System.out.println("Ya existe una venta con este ID");
+			} else {
+				resul = sentencia.executeQuery("Select * from clientes where id = " + identificador_cliente);
+				if (!resul.next()) {
+					System.out.println("No existe un cliente con ese ID");
+				} else {
+					ResultSet resulProducto = sentencia.executeQuery("Select * from productos where id = " + identificador_producto);
+					if (!resul.next()) {
+						System.out.println("No existe un producto con ese ID");
+					} else {
+						if (cantidad <= 0) {
+							System.out.println("Debes ingresar una cantidad positiva de articulos");
+						} else {
+							int stock = resulProducto.getInt(3);
+							if (cantidad > stock) {
+								System.out.println("El stock actual es " + stock + " no puedes vender " + cantidad + " unidades");
+							} else {
+								int idProducto = resulProducto.getInt(1);
+								int stockMinimo = resulProducto.getInt(4);
+								if ((stock - cantidad) <= stockMinimo) {
+									System.out.println("El stock ha llegao a minimos " + (stock - cantidad) + " unidades siendo el minimo " + stockMinimo);
+								}
+								java.util.Date utilDate = new Date();
+								java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+								sentencia.execute("insert into ventas values( " + identificador_venta + ", '" + sqlDate
+										+ "', " + identificador_cliente + ", " + identificador_producto + ", " + cantidad
+										+ ")");
+								sentencia.execute("UPDATE productos set stockactual = stockactual-"+cantidad+" where id ="+ );
+								System.out.println("venta insertada");
+							}
+
+						}
+					}
+				}
+			}
+
+			sentencia.close();
+			conexion.close();
+		} catch (SQLException e) {
+			System.out.println("Ha ocurrido una excepcion");
+			System.out.println("Mensaje: " + e.getMessage());
+			System.out.println("SQL Estado: " + e.getSQLState());
+			System.out.println("Código de error: " + e.getErrorCode());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

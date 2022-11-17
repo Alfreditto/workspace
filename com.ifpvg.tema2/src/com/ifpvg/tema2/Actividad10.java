@@ -24,18 +24,18 @@ public class Actividad10 {
 			Statement sentencia = conexion.createStatement();
 			ResultSet resul = sentencia
 					.executeQuery("Select dept_no from departamentos where dept_no = " + dept_no + ";");
-			if (resul.getFetchSize() == 0) {
+			if (resul.wasNull()) {
 				System.out.println("No existe ese departamento");
 			} else {
 				resul = sentencia.executeQuery("select emp_no from empleados where emp_no = " + emp_no + ";");
-				if (resul.getFetchSize() != 0) {
+				if (!resul.wasNull()) {
 					System.out.println("El empleado ya existe");
 				} else {
 					if (salario <= 0) {
 						System.out.println("Salario debe ser mayor que 0");
 					} else {
 						resul = sentencia.executeQuery("select dir from empleados where dir = dir;");
-						if (resul.getFetchSize() != 0) {
+						if (!resul.wasNull()) {
 							System.out.println("El director no exsiste");
 						} else {
 							String sql = "insert into empleados (emp_no, apellido, oficio, dir, salario, comision, dept_no) values ("+emp_no+", "+  apellido+", "+oficio+", "+dir+", "+", "+salario+", "+comision+", "+dept_no+");";

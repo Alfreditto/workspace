@@ -13,13 +13,15 @@ public class MySql {
 				System.out.println(resul.getInt(1) + " " + resul.getString(2) + " " + resul.getString(3));
 			}
 			resul.close();
-			//DatabaseMetaData dbmd = conexion.getMetaData();
+			// DatabaseMetaData dbmd = conexion.getMetaData();
 			sentencia.close();
 			conexion.close();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (SQLException e) {
+			System.out.println ("Ha ocurrido una excepcion");
+			System.out.println ("Mensaje: " + e.getMessage());
+			System.out.println ("SQL Estado: "+ e.getSQLState());
+			System.out.println ("Código de error: " + e.getErrorCode());
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

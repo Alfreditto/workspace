@@ -13,7 +13,7 @@ public class Iva {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo", "root", "");
 		Double cantidad = Double.parseDouble(args[0]);
-		int porcentaje = Integer.parseInt(args[1]);
+		Double porcentaje = Double.parseDouble(args[1]);
 
 		String sql = "{? = call iva(?,?)}";
 
@@ -21,7 +21,7 @@ public class Iva {
 
 		llamada.registerOutParameter(1, Types.NUMERIC);
 		llamada.setDouble(2, cantidad);
-		llamada.setInt(3, porcentaje);
+		llamada.setDouble(3, porcentaje);
 		
 		llamada.executeUpdate();
 		Double n = llamada.getDouble(1);

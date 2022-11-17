@@ -27,7 +27,6 @@
 <fullyQualifiedTypeName name="javax.xml.transform.Transformer"/>
 <fullyQualifiedTypeName name="javax.xml.transform.TransformerFactory"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javafx.beans.binding.When.ObjectConditionBuilder"/>
 <fullyQualifiedTypeName name="com.db4o.ObjectContainer"/>
 <fullyQualifiedTypeName name="com.db4o.Db4oEmbedded"/>
@@ -48,4 +47,6 @@
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

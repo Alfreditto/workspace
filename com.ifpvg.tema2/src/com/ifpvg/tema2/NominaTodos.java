@@ -29,6 +29,7 @@ public class NominaTodos {
 			llamada.setDouble(3, comision);
 			llamada.setInt(4, 20);
 			
+			
 			llamada.executeUpdate();
 			
 			Double nomina = llamada.getDouble(1);
