@@ -14,10 +14,10 @@ public class Ejercicio6 {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo", "root", "");
 			Statement sentencia = conexion.createStatement();
-			int identificador_venta = 1010;
-			int identificador_cliente = 100;
-			int identificador_producto = 1;
-			int cantidad = 45;
+			int identificador_venta = 1014;
+			int identificador_cliente = 102;
+			int identificador_producto = 3;
+			int cantidad = 10;
 			ResultSet resul = sentencia
 					.executeQuery("Select idventa from ventas where idventa = " + identificador_venta);
 			if (resul.next()) {
