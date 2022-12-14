@@ -50,4 +50,7 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.lang.Float"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="Primero.SessionFactoryUtil"/>
+    <fullyQualifiedTypeName name="Primero.Departamentos"/>
+    <fullyQualifiedTypeName name="primero.SessionFactoryUtil"/>
 </qualifiedTypeNameHistroy>
