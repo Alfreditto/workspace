@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
-    <fullyQualifiedTypeName name="java.io.FileWriter"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-    <fullyQualifiedTypeName name="java.io.FileReader"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.DOMImplementation"/>
-    <fullyQualifiedTypeName name="prueba.CrearEmpleadoXml"/>
-    <fullyQualifiedTypeName name="javax.xml.transform.dom.DOMSource"/>
-    <fullyQualifiedTypeName name="javax.swing.text.Document"/>
-    <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.Document"/>
-    <fullyQualifiedTypeName name="javax.lang.model.element.Element"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
-    <fullyQualifiedTypeName name="javax.xml.soap.Node"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
     <fullyQualifiedTypeName name="org.xml.sax.helpers.XMLReaderFactory"/>
     <fullyQualifiedTypeName name="org.xml.sax.helpers.DefaultHandler"/>
     <fullyQualifiedTypeName name="org.xml.sax.Attributes"/>
@@ -53,4 +37,27 @@
     <fullyQualifiedTypeName name="Primero.SessionFactoryUtil"/>
     <fullyQualifiedTypeName name="Primero.Departamentos"/>
     <fullyQualifiedTypeName name="primero.SessionFactoryUtil"/>
+    <fullyQualifiedTypeName name="primero.Partidos"/>
+    <fullyQualifiedTypeName name="primero.Estadisticas"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="org.hibernate.Query"/>
+    <fullyQualifiedTypeName name="org.hibernate.mapping.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="primero.Equipos"/>
+    <fullyQualifiedTypeName name="primero.Jugadores"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.ODBFactory"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.ODB"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.impl.core.query.criteria.CriteriaQuery"/>
+    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="com.ifpvg.tema4.clases.Pais"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.core.query.criteria.ICriterion"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.core.query.IQuery"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.Objects"/>
+    <fullyQualifiedTypeName name="com.ifpvg.tema4.Jugador"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.core.query.criteria.And"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.core.query.criteria.Or"/>
+    <fullyQualifiedTypeName name="org.neodatis.odb.core.query.criteria.Where"/>
 </qualifiedTypeNameHistroy>
