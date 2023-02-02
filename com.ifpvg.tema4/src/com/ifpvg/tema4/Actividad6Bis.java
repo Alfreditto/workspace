@@ -19,7 +19,7 @@ public class Actividad6Bis {
 
 		Pais p2 = new Pais(34,"España");
 
-		ODB odb = ODBFactory.open("neodatis.test");
+		ODB odb = ODBFactory.open("equipos.db");
 
 
 		Jugador j1 = new Jugador("Pedro","voleibol","Madrid",14,p2);
@@ -44,6 +44,7 @@ public class Actividad6Bis {
 		Objects<Jugador> objects = odb.getObjects(query);
 		System.out.println("Madrileños/Guadalajareños de 14 años: " + objects.size());
 		mostrarDatos(objects);
+		odb.close();
 
 	}
 	private static void mostrarDatos(Objects<Jugador> objects) {
@@ -53,7 +54,9 @@ public class Actividad6Bis {
 			System.out.println((i++) + "\t: " + jug.getNombre() + " * " + jug.getDeporte() + " * " + jug.getEdad() + " * " + jug.getPais().getNombrePais());
 
 		}
+	
 	}
+	
 
 
 }
